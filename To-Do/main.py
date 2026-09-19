@@ -1,11 +1,11 @@
 ToDos = []
 booloutput = ""
-ACTIONSTEXT = "Actions:\nHelp - Shows you this menu.\nAdd  - Adds new task\nShow - Shows you To-Do list. \nDone - Complites a task.\nExit - Exits the program"
+ACTIONSTEXT = "Actions:\nHelp - Display this menu.\nAdd - Add a new task.\nShow - Display your to-do list.\nDone - Complete a task.\nExit - Exit the program."
 ACTIONS = ["HELP", "ADD", "SHOW", "DONE", "EXIT"]
 
 
 def appendingToDo():
-    output = input("Napiš co chceš přidat To-DO:\n>")
+    output = input("What task would you like to add to the to-do list?\n> ")
     ToDos.append(output)
 
 def printToDos():
@@ -18,15 +18,15 @@ def printToDos():
 
 def doneTask():
     printToDos()
-    output = input("What do you want to remove?\n>")
+    output = input("Which task would you like to remove?\n> ")
     while True:
-        booloutput = input(f"Do you really want to complite {output}? (y/n)\n>").upper()
+        booloutput = input(f"Do you really want to complete {output}? (y/n)\n> ").upper()
         if booloutput == "Y":
             break
         if booloutput == "N":
             return
         else:
-            print('You typed it wrong! You need to type "Y" for yes or "N" for no.')
+            print('Invalid input. Type "Y" for yes or "N" for no.')
 
     if booloutput.upper() == "y".upper():
         try:
@@ -34,28 +34,28 @@ def doneTask():
             try:
                 ToDos.pop(int(output)-1)
             except:
-                print("Number is wrong!")
+                print("Invalid task number.")
         except:
             try:
                 ToDos.remove(output)
             except:
-                print("Task dosent exist!")
+                print("Task does not exist.")
 
     booloutput =""
     printToDos()
-    print("Task was succesfuly complited")
-    input("If you want to continue press enter...\n")
+    print("Task completed successfully.")
+    input("Press Enter to continue...\n")
 
 def chosingAction():
     print(ACTIONSTEXT)
-    output = input("What action do you want to do?\n> ").strip().upper()
+    output = input("Which action would you like to perform?\n> ").strip().upper()
     if output == ACTIONS[0]:
         print(ACTIONSTEXT)
     if output == ACTIONS[1]:
         appendingToDo()
     if output == ACTIONS[2]:
         printToDos()
-        input("If you want to continue press enter...\n")
+        input("Press Enter to continue...\n")
     if output == ACTIONS[3]:
         doneTask()
     if output == ACTIONS[4]:
