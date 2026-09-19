@@ -53,7 +53,7 @@ Done - Complites a task.
 Exit - Exits the program
 What action do you want to do?
 > add
-Napiš co chceš přidat To-DO:
+What task would you like to add to the to-do list?
 >Buy milk
 
 What action do you want to do?
